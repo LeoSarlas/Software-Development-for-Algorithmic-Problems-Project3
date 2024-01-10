@@ -1,7 +1,8 @@
 #   python3 reduce.py -d MNIST_60k.idx3-ubyte -q MNIST_10k.idx3-ubyte -od <output_dataset_file> -oq <output_query_file>
 
 import argparse                                         # For handling command-line arguments
-import os                                               # For working with file paths and directories
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'                                               # For working with file paths and directories
 from sklearn.model_selection import train_test_split    # For splitting the dataset
 import idx2numpy                                        # For working with binary files in the IDX format
 import numpy as np                                      # NumPy library for numerical operations
@@ -97,6 +98,7 @@ def load_mnist_images(filename):
 
     # Adjust the condition to check for an exact match
     if image_data.size != expected_size:
+
         raise ValueError(f"Invalid size for 'image_data'. Expected {expected_size}, got {image_data.size}.")
 
     # Reshape the image data to the expected shape
@@ -123,12 +125,27 @@ def delete_existing_files(prefix):
             # Remove the file
             os.remove(file_name)
 
+
+def generate_valid_shape():
+
+    while True:
+
+        # Generate random values for the dimensions
+        rows = np.random.randint(1, 6)
+        cols = np.random.randint(1, 6)
+        filters_per_layer = np.random.randint(1, 6)
+
+        # Check if the product is equal to 10
+        if rows * cols * filters_per_layer == 10:
+            return (rows, cols, filters_per_layer)
+        
+
 # Function to build a convolutional autoencoder model
 def build_convolutional_autoencoder(conv_layers, filter_size, filters_per_layer, latent_dim, epochs, batch_size, dataset_filename):
     
     # Load the MNIST dataset from the provided filename
     (X_train, X_test) = load_mnist_images(dataset_filename)
-
+    
     # Check if the dataset is valid
     if (X_train is None) or (X_test is None):
         print("Error! Invalid dataset.\n")
@@ -140,12 +157,11 @@ def build_convolutional_autoencoder(conv_layers, filter_size, filters_per_layer,
 
     # Convert the dataset to a NumPy array if not already
     X_train, X_test = np.array(X_train), np.array(X_test)
-
-
+    
     # Unpack the dataset into training and testing sets
     # (X_train, X_test) = dataset
     # (X_train, _), (X_test, _) = dataset
-    
+
     # Normalize pixel values to be in the range [0, 1]
     X_train, X_test = X_train / 255.0, X_test / 255.0
 
@@ -164,11 +180,13 @@ def build_convolutional_autoencoder(conv_layers, filter_size, filters_per_layer,
     best_model = None
     best_epochs = None
     best_batch_size = None
-
+    ep = 2
+    bc = 15
     # Iterate through different combinations of epochs and batch sizes
     for current_epochs in range(epochs):
+        # ep = current_epochs+1
         for current_batch_size in range(batch_size):
-
+            # bc = current_batch_size+1
             # Build the encoder layers
             for _ in range(conv_layers):
                 x = layers.Conv2D(filters=filters_per_layer, kernel_size=(filter_size, filter_size), activation='relu', padding='same')(x)
@@ -178,38 +196,54 @@ def build_convolutional_autoencoder(conv_layers, filter_size, filters_per_layer,
             x = layers.Flatten()(x)
             encoded = layers.Dense(latent_dim, activation='relu')(x)
 
+            # (rows, cols, filters_per_layer) = generate_valid_shape()
+
             # Build the decoder layers
-            x = layers.Reshape((7, 7, filters_per_layer))(encoded)  # Adjusted reshaping
+            x = layers.Reshape((1, 1, 10))(encoded)  # Adjust reshaping
 
-            for _ in range(conv_layers):
-                x = layers.Conv2D(filters=filters_per_layer, kernel_size=(filter_size, filter_size), activation='relu', padding='same')(x)
+            # for _ in range(conv_layers):
+            #     x = layers.Conv2D(filters=10, kernel_size=(filter_size, filter_size), activation='relu', padding='same')(x)
+            #     x = layers.UpSampling2D((2, 2))(x)
+            if(conv_layers==1):
+                x = layers.Conv2D(filters=10, kernel_size=(filter_size, filter_size), activation='relu', padding='same')(x)
+                x = layers.UpSampling2D((28, 28))(x)
+            elif(conv_layers==2):
+                x = layers.Conv2D(filters=10, kernel_size=(filter_size, filter_size), activation='relu', padding='same')(x)
+                x = layers.UpSampling2D((7, 7))(x)
+                x = layers.Conv2D(filters=10, kernel_size=(filter_size, filter_size), activation='relu', padding='same')(x)
+                x = layers.UpSampling2D((4, 4))(x)
+            elif(conv_layers==3):
+                x = layers.Conv2D(filters=10, kernel_size=(filter_size, filter_size), activation='relu', padding='same')(x)
                 x = layers.UpSampling2D((2, 2))(x)
-
+                x = layers.Conv2D(filters=10, kernel_size=(filter_size, filter_size), activation='relu', padding='same')(x)
+                x = layers.UpSampling2D((2, 2))(x)
+                x = layers.Conv2D(filters=10, kernel_size=(filter_size, filter_size), activation='relu', padding='same')(x)
+                x = layers.UpSampling2D((7, 7))(x)
             # Output layer of the autoencoder
-            decoded = layers.Conv2D(1, (filter_size, filter_size), activation='sigmoid', padding='same')(x)
+            decoded = layers.Conv2D(1, (filter_size, filter_size), activation='relu', padding='same')(x)
 
             # Define the autoencoder model
             autoencoder = models.Model(input_img, decoded)
 
             # Compile the autoencoder model using mean squared error as the loss function
-            autoencoder.compile(optimizer='adam', loss='mse')
+            autoencoder.compile(optimizer='adam', loss='mean_squared_error')
 
             # Train the autoencoder model
-            history = autoencoder.fit(X_train, X_train, epochs=current_epochs, batch_size=current_batch_size, validation_data=(X_val, X_val))
-
+            history = autoencoder.fit(X_train, X_train, epochs=ep, batch_size=bc, validation_data=(X_val, X_val))
+            # print(history.history)
             # Evaluate the model on the validation set
             validation_loss = history.history['val_loss'][-1]
 
             # Print validation loss for the current combination
-            print(f"Validation Loss (epochs={current_epochs}, batch_size={current_batch_size}): {validation_loss}")
-
+            print(f"Validation Loss (epochs={ep}, batch_size={bc}): {validation_loss}")
+            bc+=1
             # Check if the current model has a lower validation loss
             if validation_loss < best_validation_loss:
                 best_validation_loss = validation_loss
                 best_model = autoencoder
-                best_epochs = current_epochs
-                best_batch_size = current_batch_size
-
+                best_epochs = ep
+                best_batch_size = bc
+        ep+=1
     # Evaluate the best model on the test set
     test_loss = best_model.evaluate(X_test, X_test)
     print(f"\nBest Model - Test Loss: {test_loss}")
@@ -272,7 +306,7 @@ def main():
 
     # Build a convolutional autoencoder model using the training dataset
     autoencoder_model = build_convolutional_autoencoder(
-        conv_layers=5, filter_size=5, filters_per_layer=32, latent_dim=10, epochs=10, batch_size=32, dataset_filename=training_dataset
+        conv_layers=3, filter_size=5, filters_per_layer=5, latent_dim=10, epochs=9, batch_size=15, dataset_filename=training_dataset
     )
 
 if __name__ == "__main__":
