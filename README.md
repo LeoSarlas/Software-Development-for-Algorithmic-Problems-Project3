@@ -91,7 +91,7 @@ Execute this terminal command to compile HC
 
 <br><br>
 
->  Lloyd's - Reverse search by LSH - Reverse search by random projection (Hybercube)
+** Lloyd's - Reverse search by LSH - Reverse search by random projection (Hybercube)
 
 There, execute this terminal command to compile
 
