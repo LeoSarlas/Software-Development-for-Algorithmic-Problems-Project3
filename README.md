@@ -69,7 +69,7 @@ Clone the repo
 
 * After the datasets 'NN_MNIST_60k.idx3-ubyte' (input file) and 'NN_MNIST_10k.idx3-ubyte' (query file) are created, use them as input parameters in the terminal commands of the previous Projects 1 & 2:
 
-    ### LSH
+   >    LSH
 
 Eexecute this terminal command to compile LSH
 
@@ -78,7 +78,7 @@ Eexecute this terminal command to compile LSH
 
         ./lsh –d <input file> –q <query file> –k <int> -L <int> -ο <output file> -Ν <number of nearest> -R <radius>
 
-   ### HyperCube
+   >    HyperCube
 
 Execute this terminal command to compile HC
 
@@ -89,7 +89,7 @@ Execute this terminal command to compile HC
         ./cube –d <input file> –q <query file> –k <int> -M <int> -probes <int> -ο <output file> -Ν <number of nearest> -R <radius>
 
 
-   ### Lloyd's - Reverse search by LSH - Reverse search by random projection (Hybercube)
+   >    Lloyd's - Reverse search by LSH - Reverse search by random projection (Hybercube)
 
 There, execute this terminal command to compile
 
@@ -97,15 +97,15 @@ There, execute this terminal command to compile
 
 and one of these commands, depending on which algorithm/method of clustering you wish to test
 
-&emsp; Classic Lloyd's algorithm
+   >    Classic Lloyd's algorithm
 
         ./cluster -i input.idx3-ubyte -c cluster.conf -o Classic_output_file.txt -m Classic -complete
 
-&emsp; Reverse search by LSH method
+   >    Reverse search by LSH method
 
         ./cluster -i input.idx3-ubyte -c cluster.conf -o LSH_output_file.txt -m LSH -complete
 
-&emsp; Reverse search by random projection (Hybercube) method
+   >    Reverse search by random projection (Hybercube) method
 
         ./cluster -i input.idx3-ubyte -c cluster.conf -o Random_projection_output_file.txt -m Hypercube -complete
     
