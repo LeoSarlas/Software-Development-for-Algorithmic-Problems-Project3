@@ -27,8 +27,8 @@ the winter semester of 2023-2024.
 
 In this assignment, we dealt with:
 
-* Searching for the best parameters of a neural network, in order to reduce the dimension of the MNIST images dataset.
-* Testing the results quality of the algorithms in Projects [1](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project1) & [2](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project2) when the MNIST images of reduced dimension is feeded in these algorithms.
+* First, we are searching for the best parameters of a neural network, in order to reduce the dimension of the MNIST images dataset.
+* Then, we test the results quality of the algorithms in Projects [1](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project1) & [2](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project2) when the MNIST images of reduced dimension from the NN are feeded in these algorithms.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
