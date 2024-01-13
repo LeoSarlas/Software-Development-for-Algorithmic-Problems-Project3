@@ -89,7 +89,7 @@ Execute this terminal command to compile HC
 
         ./cube –d <input file> –q <query file> –k <int> -M <int> -probes <int> -ο <output file> -Ν <number of nearest> -R <radius>
 
-<br>
+<br><br>
 
 >  Lloyd's - Reverse search by LSH - Reverse search by random projection (Hybercube)
 
@@ -98,7 +98,7 @@ There, execute this terminal command to compile
           make cluster
 
 and one of these commands, depending on which algorithm/method of clustering you wish to test
-<br>
+<br><br><br>
 
    >    Classic Lloyd's algorithm
 
