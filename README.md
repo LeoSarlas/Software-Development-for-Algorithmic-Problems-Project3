@@ -28,7 +28,7 @@ the winter semester of 2023-2024.
 In this assignment, we dealt with:
 
 * Searching for the best parameters of a neural network, in order to reduce the dimension of the MNIST images dataset.
-* Testing the results quality of the algorithms in Projects [1] (https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project1) & [2] (https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project2) when the MNIST images of reduced dimension is feeded in these algorithms.
+* Testing the results quality of the algorithms in Projects [1](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project1) & [2](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project2) when the MNIST images of reduced dimension is feeded in these algorithms.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -47,36 +47,29 @@ This project is primarily built using:
 
 
 <!-- GETTING STARTED -->
-## Getting Started
-
-Below, you can see the folders in which this assignment is partitioned into:
-
-### partA__LSH-implementation
-
-&emsp;Contains Vectors comparison and Locality-Sensitive Hashing (LSH) implementations. For more details, please read the
-appropriate README file located in there.
-
-### partB__clustering-algorithms
-
-&emsp; Contains vectors clustering implementations. For more details, please read the appropriate README file located in there.
-
-## Download
+## Getting Started - Download
 
 Clone the repo
    ```sh
-   git clone https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project1.git
+   git clone https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project3.git
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 <!-- USAGE EXAMPLES -->
 ## Compilation and execution
 
-Depending on the part of the project you want to compile and execute, head into the appropriate folder.
+* First, execute the main code through the command
+  
+      python3 reduce.py -d MNIST_60k.idx3-ubyte -q MNIST_10k.idx3-ubyte -od NN_MNIST_60k.idx3-ubyte -oq NN_MNIST_10k.idx3-ubyte
+or
 
-### part A
+      python3 reduce.py -d MNIST_60k.idx3-ubyte -q MNIST_10k.idx3-ubyte -od NN_MNIST_60k.idx3-ubyte -oq NN_MNIST_10k.idx3-ubyte
+
+* After the datasets 'NN_MNIST_60k.idx3-ubyte' and 'NN_MNIST_10k.idx3-ubyte' are created, use them as input parameters in the terminal commands of the previous Projects 1 & 2:
+
+## LSH
 
 Eexecute this terminal command to compile LSH
 
@@ -84,7 +77,9 @@ Eexecute this terminal command to compile LSH
 &emsp; LSH algorithm
 
     ./lsh –d <input file> –q <query file> –k <int> -L <int> -ο <output file> -Ν <number of nearest> -R <radius>
-    
+
+## HyperCube
+
 Execute this terminal command to compile HC
 
     make HC
@@ -94,7 +89,7 @@ Execute this terminal command to compile HC
     ./cube –d <input file> –q <query file> –k <int> -M <int> -probes <int> -ο <output file> -Ν <number of nearest> -R <radius>
 
 
-### part B
+## Lloyd's - Reverse search by LSH - Reverse search by random projection (Hybercube)
 
 There, execute this terminal command to compile
 
@@ -118,7 +113,7 @@ and one of these commands, depending on which algorithm/method of clustering you
 Keep in mind that the ***[-complete]*** parameter is optional, and determines whether the log file will print results
 concisely or analytically.
  
-_For more information, please refer to the [README](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project1/blob/main/partB__clustering-algorithms/README.txt) file.
+For more information, please refer to the [README]() file.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
