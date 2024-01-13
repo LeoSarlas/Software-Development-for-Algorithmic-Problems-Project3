@@ -68,7 +68,7 @@ Clone the repo
           python3 reduce.py -d MNIST_60k.idx3-ubyte -q MNIST_10k.idx3-ubyte -od NN_MNIST_60k.idx3-ubyte -oq NN_MNIST_10k.idx3-ubyte
 
 * After the datasets 'NN_MNIST_60k.idx3-ubyte' (input file) and 'NN_MNIST_10k.idx3-ubyte' (query file) are created, use them as input parameters in the terminal commands of the previous Projects 1 & 2:
-
+<br><br>
 >  LSH
 
 Eexecute this terminal command to compile LSH
@@ -77,6 +77,7 @@ Eexecute this terminal command to compile LSH
 &emsp; LSH algorithm
 
         ./lsh –d <input file> –q <query file> –k <int> -L <int> -ο <output file> -Ν <number of nearest> -R <radius>
+<br>
 
 >  HyperCube
 
@@ -112,7 +113,7 @@ and one of these commands, depending on which algorithm/method of clustering you
    >    Reverse search by random projection (Hybercube) method
 
         ./cluster -i input.idx3-ubyte -c cluster.conf -o Random_projection_output_file.txt -m Hypercube -complete
-    
+<br>    
 
 Keep in mind that the ***[-complete]*** parameter is optional, and determines whether the log file will print results
 concisely or analytically.
