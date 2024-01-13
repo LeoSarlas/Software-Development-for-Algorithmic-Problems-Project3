@@ -6,7 +6,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="resources/neural.png" alt="Logo" width="250" height="170">
+    <img src="resources/neural.png" alt="Logo" width="400" height="350">
     <br />
   </a>
 
