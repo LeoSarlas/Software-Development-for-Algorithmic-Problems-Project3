@@ -38,8 +38,8 @@ In this assignment, we dealt with:
 This project is primarily built using:
 
 * <img src="resources/python.png" alt="Python Logo" width="40" height="40" align="center"> : The main programming language for the Project 3.
-* <img src="resources/c++.png" alt="C++ Logo" width="40" height="40" align="center"> : The main programming language for the Project 1 & 2.
-* <img src="resources/gnu.jpg" alt="Make Logo" width="40" height="40" align="center"> : Used for compiling and building the project.
+* <img src="resources/c++.png" alt="C++ Logo" width="40" height="40" align="center"> : The main programming language for the Projects 1 & 2.
+* <img src="resources/gnu.jpg" alt="Make Logo" width="40" height="40" align="center"> : Used for compiling and building the Projects 1 & 2.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
