@@ -62,10 +62,10 @@ Clone the repo
 
 * First, execute the main code through the command
   
-      python3 reduce.py -d MNIST_60k.idx3-ubyte -q MNIST_10k.idx3-ubyte -od NN_MNIST_60k.idx3-ubyte -oq NN_MNIST_10k.idx3-ubyte
-or
+          python3 reduce.py -d MNIST_60k.idx3-ubyte -q MNIST_10k.idx3-ubyte -od NN_MNIST_60k.idx3-ubyte -oq NN_MNIST_10k.idx3-ubyte
+    or
 
-      python3 reduce.py -d MNIST_60k.idx3-ubyte -q MNIST_10k.idx3-ubyte -od NN_MNIST_60k.idx3-ubyte -oq NN_MNIST_10k.idx3-ubyte
+          python3 reduce.py -d MNIST_60k.idx3-ubyte -q MNIST_10k.idx3-ubyte -od NN_MNIST_60k.idx3-ubyte -oq NN_MNIST_10k.idx3-ubyte
 
 * After the datasets 'NN_MNIST_60k.idx3-ubyte' (input file) and 'NN_MNIST_10k.idx3-ubyte' (query file) are created, use them as input parameters in the terminal commands of the previous Projects 1 & 2:
 
@@ -73,27 +73,27 @@ or
 
 Eexecute this terminal command to compile LSH
 
-    make LSH
+            make LSH
 &emsp; LSH algorithm
 
-    ./lsh –d <input file> –q <query file> –k <int> -L <int> -ο <output file> -Ν <number of nearest> -R <radius>
+        ./lsh –d <input file> –q <query file> –k <int> -L <int> -ο <output file> -Ν <number of nearest> -R <radius>
 
 ## HyperCube
 
 Execute this terminal command to compile HC
 
-    make HC
+            make HC
 
 &emsp; HC algorithm
 
-    ./cube –d <input file> –q <query file> –k <int> -M <int> -probes <int> -ο <output file> -Ν <number of nearest> -R <radius>
+        ./cube –d <input file> –q <query file> –k <int> -M <int> -probes <int> -ο <output file> -Ν <number of nearest> -R <radius>
 
 
 ## Lloyd's - Reverse search by LSH - Reverse search by random projection (Hybercube)
 
 There, execute this terminal command to compile
 
-    make cluster
+      make cluster
 
 and one of these commands, depending on which algorithm/method of clustering you wish to test
 
