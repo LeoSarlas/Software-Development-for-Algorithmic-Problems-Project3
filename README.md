@@ -67,7 +67,7 @@ or
 
       python3 reduce.py -d MNIST_60k.idx3-ubyte -q MNIST_10k.idx3-ubyte -od NN_MNIST_60k.idx3-ubyte -oq NN_MNIST_10k.idx3-ubyte
 
-* After the datasets 'NN_MNIST_60k.idx3-ubyte' and 'NN_MNIST_10k.idx3-ubyte' are created, use them as input parameters in the terminal commands of the previous Projects 1 & 2:
+* After the datasets 'NN_MNIST_60k.idx3-ubyte' (input file) and 'NN_MNIST_10k.idx3-ubyte' (query file) are created, use them as input parameters in the terminal commands of the previous Projects 1 & 2:
 
 ## LSH
 
