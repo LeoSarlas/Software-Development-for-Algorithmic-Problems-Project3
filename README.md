@@ -93,21 +93,21 @@ Execute this terminal command to compile HC
 
 There, execute this terminal command to compile
 
-      make cluster
+          make cluster
 
 and one of these commands, depending on which algorithm/method of clustering you wish to test
 
 &emsp; Classic Lloyd's algorithm
 
-    ./cluster -i input.idx3-ubyte -c cluster.conf -o Classic_output_file.txt -m Classic -complete
+        ./cluster -i input.idx3-ubyte -c cluster.conf -o Classic_output_file.txt -m Classic -complete
 
 &emsp; Reverse search by LSH method
 
-    ./cluster -i input.idx3-ubyte -c cluster.conf -o LSH_output_file.txt -m LSH -complete
+        ./cluster -i input.idx3-ubyte -c cluster.conf -o LSH_output_file.txt -m LSH -complete
 
 &emsp; Reverse search by random projection (Hybercube) method
 
-    ./cluster -i input.idx3-ubyte -c cluster.conf -o Random_projection_output_file.txt -m Hypercube -complete
+        ./cluster -i input.idx3-ubyte -c cluster.conf -o Random_projection_output_file.txt -m Hypercube -complete
     
 
 Keep in mind that the ***[-complete]*** parameter is optional, and determines whether the log file will print results
