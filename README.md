@@ -118,7 +118,7 @@ and one of these commands, depending on which algorithm/method of clustering you
 Keep in mind that the ***[-complete]*** parameter is optional, and determines whether the log file will print results
 concisely or analytically.
  
-For more information, please refer to the [README](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project3/blob/main/README.txt) file.
+For more information, please refer to the [README](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project3/blob/main/README.txt](https://github.com/LeoSarlas/Software-Development-for-Algorithmic-Problems-Project3/blob/main/README.pdf) file.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
