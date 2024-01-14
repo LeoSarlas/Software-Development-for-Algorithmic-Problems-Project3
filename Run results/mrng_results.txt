@@ -1,0 +1,38 @@
+Query: 29383
+Nearest neighbor-0: 8026
+DistanceApproximate: 1636.56
+DistanceTrue: 1636.56
+True Neighbor: 8026
+tApproximate: 0.51272
+tTrue: 0.199897
+MAF: 1
+
+Query: 29383
+Nearest neighbor-0: 9758
+DistanceApproximate: 120.237
+DistanceTrue: 120.237
+True Neighbor: 9758
+tAverageApproximate: 0.014081
+tAverageTrue: 0.012451
+MAF: 1
+
+
+Query: 12777
+Nearest neighbor-0: 2895
+DistanceApproximate: 1496.32
+DistanceTrue: 1496.32
+True Neighbor: 2895
+tApproximate: 0.505918
+tTrue: 0.191603
+MAF: 1
+
+Query: 12777
+Nearest neighbor-0: 3437
+DistanceApproximate: 114.477
+DistanceTrue: 114.477
+True Neighbor: 3437
+tAverageApproximate: 0.015891
+tAverageTrue: 0.011357
+MAF: 1
+
+
