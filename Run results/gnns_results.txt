@@ -91,3 +91,7 @@ True Neighbor: 1061
 tApproximate: 0
 tTrue: 0
 MAF: 1.14066
+
+
+Mean Approximation Factοr NN: 1.425712
+Mean Approximation Factοr True: 1.94690

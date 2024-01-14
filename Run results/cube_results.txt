@@ -91,3 +91,7 @@ True neighbor: 7830
 MAF: 5.83893
 tCube: 2.3e-05
 tTrue: 0.011749
+
+
+Mean Approximation Factοr NN: 3.023158
+Mean Approximation Factοr True: 1.94690

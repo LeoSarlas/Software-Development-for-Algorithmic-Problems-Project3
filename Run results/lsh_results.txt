@@ -14,7 +14,7 @@ DistanceTrue: 98.514
 True neighbor: 8087
 MAF: 1.34727
 tLSH: 0.000321
-tTrue: 0.014773
+tTrue: 0.014773 
 
 
 Query: 30862
@@ -91,3 +91,6 @@ True neighbor: 8385
 MAF: 1.45806
 tLSH: 0.000288
 tTrue: 0.014304
+
+Mean Approximation Factοr NN: 1.152996
+Mean Approximation Factοr True: 1.45872

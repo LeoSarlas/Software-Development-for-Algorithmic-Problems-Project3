@@ -36,3 +36,5 @@ tAverageTrue: 0.011357
 MAF: 1
 
 
+Mean Approximation Factοr NN: 1
+Mean Approximation Factοr True: 1
